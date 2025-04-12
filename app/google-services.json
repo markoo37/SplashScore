@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "577447752542",
+    "project_id": "splashscore-56a8f",
+    "storage_bucket": "splashscore-56a8f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:577447752542:android:cf16a1b3d3d216b584d5cf",
+        "android_client_info": {
+          "package_name": "com.example.splashscore"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGb59gKUWVJOcGYC8Vycx049gfQc-HUSA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

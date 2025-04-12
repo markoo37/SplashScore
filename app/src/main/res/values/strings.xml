@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">SplashScore</string>
+    <string name="registration">Registration</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="password_again">Password Again</string>
+    <string name="register">Register</string>
+    <string name="already_have_an_account_log_in">Already have an account? Log in</string>
+    <string name="splashscore">SplashScore</string>
+    <string name="log_in">Log In</string>
+    <string name="don_t_have_an_account_register">Don\'t have an account? Register</string>
+    <string name="current_user">Current user:</string>
+    <string name="logout">Logout</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="lightblue">#D0EFFF</color> <!-- Background of card -->
+    <color name="DarkBlue">#003366</color>  <!-- Team names -->
+    <color name="DeepBlue">#001F4D</color>  <!-- Score -->
+    <color name="LightBlue">#66B2FF</color> <!-- Match time (quarter breakdowns) -->
+</resources>
