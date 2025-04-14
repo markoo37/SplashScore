@@ -11,4 +11,6 @@
     <string name="don_t_have_an_account_register">Don\'t have an account? Register</string>
     <string name="current_user">Current user:</string>
     <string name="logout">Logout</string>
+    <string name="app_logo">app_login_logo</string>
+    <string name="welcome_please_log_in">Welcome, please log in!</string>
 </resources>
