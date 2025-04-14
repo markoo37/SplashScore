@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
-
+    //LOGIN WITH FIREBASE AUTHENTICATION
     private static final String LOG_TAG = LoginActivity.class.getName();
     private static final int SECRET_KEY = 544;
 

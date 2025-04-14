@@ -7,72 +7,82 @@
     android:background="@color/lightblue"
     android:padding="24dp">
 
-    <TextView
-        android:id="@+id/appTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/splashscore"
-        android:textColor="@color/DarkBlue"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/loginForm"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="16dp" />
+    <!-- App Logo -->
+
+    <!-- App Title -->
+
+
+    <!-- Login Form -->
+
 
     <LinearLayout
         android:id="@+id/loginForm"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:gravity="center"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="24dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/appLogo"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_marginBottom="4dp"
+            android:contentDescription="@string/app_logo"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logosc"
+            app:layout_constraintBottom_toTopOf="@id/emailEditText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.499"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="@color/DarkBlue"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
-            android:backgroundTint="@color/DarkBlue"
+            android:padding="12dp"
             android:textColor="@color/DarkBlue"
-            android:textColorHint="@color/DeepBlue"
-            android:layout_marginBottom="16dp" />
+            android:textColorHint="@color/DeepBlue" />
 
         <EditText
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/DarkBlue"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:backgroundTint="@color/DarkBlue"
+            android:padding="12dp"
             android:textColor="@color/DarkBlue"
-            android:textColorHint="@color/DeepBlue"
-            android:layout_marginBottom="24dp" />
+            android:textColorHint="@color/DeepBlue" />
 
         <Button
             android:id="@+id/loginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/log_in"
+            android:layout_marginBottom="16dp"
             android:backgroundTint="@color/DeepBlue"
-            android:textColor="@android:color/white"
-            android:layout_marginBottom="16dp" />
+            android:text="@string/log_in"
+            android:textColor="@android:color/white" />
 
         <Button
             android:id="@+id/registerRedirectButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/don_t_have_an_account_register"
-            android:background="@android:color/transparent"
-            android:textColor="@color/DarkBlue"
             android:layout_gravity="center"
-            android:onClick="goToRegister"/>
+            android:background="@android:color/transparent"
+            android:onClick="goToRegister"
+            android:text="@string/don_t_have_an_account_register"
+            android:textColor="@color/DarkBlue" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

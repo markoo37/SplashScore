@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterActivity extends AppCompatActivity {
-
+    //REGISTRATION WITH FIREBASE AUTHENTICATION
     private static final String LOG_TAG = RegisterActivity.class.getName();
     private static final int SECRET_KEY = 544;
 
@@ -63,6 +63,8 @@ public class RegisterActivity extends AppCompatActivity {
 
         if (!password.equals(passwordAgain)) {
             Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+            passwordEditText.setText("");
+            passwordAgainEditText.setText("");
             return;
         }
 
@@ -73,8 +75,11 @@ public class RegisterActivity extends AppCompatActivity {
                     overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_top);
                     finish(); // Prevent going back to register
                 })
-                .addOnFailureListener(e ->
-                        Toast.makeText(this, "Registration failed: " + e.getMessage(), Toast.LENGTH_LONG).show()
-                );
+                .addOnFailureListener(e -> {
+                    Toast.makeText(this, "Registration failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                    emailEditText.setText("");
+                    passwordEditText.setText("");
+                    passwordAgainEditText.setText("");
+                });
     }
 }
