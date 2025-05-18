@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:weightSum="8">
+
+    <!-- 1/8: Helyezés -->
+    <TextView
+        android:id="@+id/posText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="1"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+    <!-- 3/8: Csapatnév -->
+    <TextView
+        android:id="@+id/teamNameText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:text="Csapat neve"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"/>
+
+    <!-- 1/8: Győzelem -->
+    <TextView
+        android:id="@+id/winsText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="W"/>
+
+    <!-- 1/8: Döntetlen -->
+    <TextView
+        android:id="@+id/drawsText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="D"/>
+
+    <!-- 1/8: Vereség -->
+    <TextView
+        android:id="@+id/lossesText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="L"/>
+
+    <!-- 1/8: Pont -->
+    <TextView
+        android:id="@+id/pointsText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="Pts"
+        android:textStyle="bold"/>
+
+</LinearLayout>

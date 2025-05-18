@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp">
+
+    <!-- A NestedScrollView összevon minden scrollolandó tartalmat -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/outerScroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 1. Tabella felirat -->
+            <TextView
+                android:id="@+id/standingsHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tabella"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <!-- 2. Oszlopfejlécek -->
+            <LinearLayout
+                android:id="@+id/columnHeaders"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="8"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp">
+
+                <!-- 1/8: Helyezés -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/hely"
+                    android:textStyle="bold"/>
+
+                <!-- 3/8: Csapat -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="@string/csapat"
+                    android:textStyle="bold"/>
+
+                <!-- 1/8: Győzelem -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/gy"
+                    android:textStyle="bold"/>
+
+                <!-- 1/8: Döntetlen -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/d"
+                    android:textStyle="bold"/>
+
+                <!-- 1/8: Vereség -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/v"
+                    android:textStyle="bold"/>
+
+                <!-- 1/8: Pont -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/pontsz_m"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <!-- 3. Tabella RecyclerView (belső scroll kikapcsolva) -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/standingsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:layout_marginTop="4dp"/>
+
+            <!-- 4. Góllövők – Top 50 cím -->
+            <TextView
+                android:id="@+id/topScorersHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/g_ll_v_k_top_50"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"/>
+
+            <!-- 5. Góllövők RecyclerView (belső scroll kikapcsolva) -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/topScorersRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:layout_marginTop="8dp"/>
+
+
+
+            <!-- 1) Legfiatalabbak -->
+            <TextView
+                android:id="@+id/youngestHeader"
+                android:layout_marginTop="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@string/legfiatalabbak"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvYoungest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"/>
+
+            <!-- 2) Legidősebbek -->
+            <TextView
+                android:id="@+id/oldestHeader"
+                android:layout_marginTop="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@string/legid_sebbek"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvOldest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"/>
+
+            <!-- 3) Legnehezebbek -->
+            <TextView
+                android:id="@+id/heaviestHeader"
+                android:layout_marginTop="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@string/legnehezebbek"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvHeaviest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

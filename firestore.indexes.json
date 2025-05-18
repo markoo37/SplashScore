@@ -1,0 +1,28 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "players",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "goals",  "order": "ASCENDING" },
+        { "fieldPath": "age",    "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "players",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "goals",  "order": "ASCENDING" },
+        { "fieldPath": "age",    "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "players",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "goals",   "order": "ASCENDING" },
+        { "fieldPath": "weight",  "order": "DESCENDING" }
+      ]
+    }
+  ]
+}

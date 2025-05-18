@@ -10,6 +10,12 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
     //REGISTRATION WITH FIREBASE AUTHENTICATION
@@ -17,6 +23,7 @@ public class RegisterActivity extends AppCompatActivity {
     private static final int SECRET_KEY = 544;
 
     private FirebaseAuth mAuth;
+    private FirebaseFirestore db;
 
     EditText emailEditText, passwordEditText, passwordAgainEditText;
     Button registerButton;
@@ -33,6 +40,7 @@ public class RegisterActivity extends AppCompatActivity {
             finish();
         }
         mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
         emailEditText = findViewById(R.id.emailEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
@@ -70,10 +78,32 @@ public class RegisterActivity extends AppCompatActivity {
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnSuccessListener(authResult -> {
-                    Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(RegisterActivity.this, MainActivity.class));
-                    overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_top);
-                    finish(); // Prevent going back to register
+
+                    FirebaseUser user = authResult.getUser();
+                    if (user == null) { return; }
+
+                    Map<String, Object> profile = new HashMap<>();
+                    profile.put("uid",       user.getUid());
+                    profile.put("email",     user.getEmail());
+                    profile.put("createdAt", FieldValue.serverTimestamp());
+                    profile.put("avatarUrl", null);
+                    db.collection("profiles")
+                            .document(user.getUid())
+                            .set(profile)
+                            .addOnSuccessListener(aVoid -> {
+                                // Profil sikeresen mentve
+                                Toast.makeText(this, "Regisztráció kész!", Toast.LENGTH_SHORT).show();
+                                // Tovább a főoldalra
+                                startActivity(new Intent(RegisterActivity.this, MainActivity.class)
+                                        .putExtra("SECRET_KEY", SECRET_KEY));
+                                overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_top);
+                                finish();
+                            })
+                            .addOnFailureListener(e -> {
+                                Toast.makeText(this, "Hiba profil mentésekor: " + e.getMessage(),
+                                        Toast.LENGTH_LONG).show();
+                            });
+
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(this, "Registration failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
@@ -82,4 +112,5 @@ public class RegisterActivity extends AppCompatActivity {
                     passwordAgainEditText.setText("");
                 });
     }
+
 }

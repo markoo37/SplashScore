@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/profileRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp">
+
+    <!-- Vertikális lánc elemei CENTER -->
+    <!-- 1) Avatar -->
+    <ImageView
+        android:id="@+id/profileAvatar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_avatar_placeholder"
+        android:contentDescription="@string/profile_avatar"
+        android:scaleType="centerCrop"
+        android:background="@drawable/circle_bg"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/profileEmailText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- 2) Email -->
+    <TextView
+        android:id="@+id/profileEmailText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="user@example.com"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/profileAvatar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- 3) Display name -->
+    <TextView
+        android:id="@+id/profileNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Display Név"
+        android:visibility="invisible"
+        android:textSize="14sp"
+        android:textColor="?attr/colorOnSurfaceVariant"
+        app:layout_constraintTop_toBottomOf="@id/profileEmailText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- 4) Divider -->
+    <View
+        android:id="@+id/divider"
+        android:layout_width="64dp"
+        android:layout_height="2dp"
+        android:background="?attr/colorOutline"
+        app:layout_constraintTop_toBottomOf="@id/profileNameText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- 5) Sign out button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/signOutButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/logout"
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- 6) Hotline button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnHotline"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/splashscore_hotline"
+        app:layout_constraintTop_toBottomOf="@id/signOutButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Chain beállítása -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/topGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottomGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.85"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

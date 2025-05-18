@@ -77,13 +77,17 @@ public class LoginActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_top);
     }
 
-    /*@Override
+    @Override
     protected void onStart() {
         super.onStart();
         FirebaseUser user = mAuth.getCurrentUser();
         if (user != null) {
-            startActivity(new Intent(LoginActivity.this, MainActivity.class).putExtra("email", user.getEmail()));
-            finish();
+            // BEJELENTKEZETT: automatikus átirányítás Secret Key-vel
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra("SECRET_KEY", SECRET_KEY);
+            startActivity(intent);
+            finish();  // eltávolítjuk a LoginActivity-t a visszatérési stack-ből
         }
-    }*/
+    }
+
 }

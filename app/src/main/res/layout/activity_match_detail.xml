@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootDetailLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="?attr/colorSurface">
+
+    <!-- 1) Top App Bar with back button -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorSurface"
+        app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+        app:title=""
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- 2) Result Card under the Toolbar -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardResult"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/tvResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="Betöltés…"
+            android:textAlignment="center"
+            android:textAppearance="?attr/textAppearanceHeadline6"/>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- 3) Half‐width Guideline for two columns -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/verticalGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"/>
+
+    <!-- 4) Hazai gólszerzők cím (bal oszlop) -->
+    <TextView
+        android:id="@+id/tvHomeLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Hazai gólszerzők"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/cardResult"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/verticalGuideline"/>
+
+    <!-- 5) Vendég gólszerzők cím (jobb oszlop) -->
+    <TextView
+        android:id="@+id/tvAwayLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Vendég gólszerzők"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/cardResult"
+        app:layout_constraintStart_toEndOf="@id/verticalGuideline"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- 6) Hazai gólszerzők lista -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHomeScorers"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:overScrollMode="ifContentScrolls"
+        app:layout_constraintTop_toBottomOf="@id/tvHomeLabel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/verticalGuideline"/>
+
+    <!-- 7) Vendég gólszerzők lista -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvAwayScorers"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:overScrollMode="ifContentScrolls"
+        app:layout_constraintTop_toBottomOf="@id/tvAwayLabel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/verticalGuideline"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

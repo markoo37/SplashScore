@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_eredmenyek"
+        android:icon="@drawable/ic_score"
+        android:title="@string/eredm_nyek" />
+
+    <item
+        android:id="@+id/nav_hirek"
+        android:icon="@drawable/ic_news"
+        android:title="@string/hirek" />
+
+    <item
+        android:id="@+id/nav_statisztikak"
+        android:icon="@drawable/ic_stats"
+        android:title="@string/statisztikak" />
+
+    <item
+        android:id="@+id/nav_profil"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/profil" />
+</menu>

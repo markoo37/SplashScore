@@ -1,16 +1,37 @@
 <resources>
     <string name="app_name">SplashScore</string>
-    <string name="registration">Registration</string>
+    <string name="registration">Regisztáció</string>
     <string name="email">Email</string>
-    <string name="password">Password</string>
-    <string name="password_again">Password Again</string>
-    <string name="register">Register</string>
-    <string name="already_have_an_account_log_in">Already have an account? Log in</string>
+    <string name="password">Jelszó</string>
+    <string name="password_again">Jelszó újra</string>
+    <string name="register">Regisztáció</string>
+    <string name="already_have_an_account_log_in">Van már fiókod? Jelentkezz be!</string>
     <string name="splashscore">SplashScore</string>
     <string name="log_in">Log In</string>
-    <string name="don_t_have_an_account_register">Don\'t have an account? Register</string>
-    <string name="current_user">Current user:</string>
-    <string name="logout">Logout</string>
+    <string name="don_t_have_an_account_register">Nincs még fiókod? Regisztrálj!</string>
+    <string name="current_user">Bejelentkezve mint:</string>
+    <string name="logout">Kijelentkezés</string>
     <string name="app_logo">app_login_logo</string>
-    <string name="welcome_please_log_in">Welcome, please log in!</string>
+    <string name="welcome_please_log_in">Üdvözöljük! Jelentkezzen be</string>
+    <string name="eredm_nyek">Eredmények</string>
+    <string name="hirek">Hírek</string>
+    <string name="statisztikak">Statisztikák</string>
+    <string name="profil">Profil</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="eredmenyek">Eredmények</string>
+    <string name="tabella">Tabella</string>
+    <string name="hely">Hely</string>
+    <string name="csapat">Csapat</string>
+    <string name="gy">GY</string>
+    <string name="d">D</string>
+    <string name="v">V</string>
+    <string name="pontsz_m">Pont</string>
+    <string name="g_ll_v_k_top_50">Góllövők – Top 50</string>
+    <string name="profile_avatar">profil avatar</string>
+    <string name="unknown_user">ismeretlen felhasznalo</string>
+    <string name="legfiatalabbak">Legfiatalabbak</string>
+    <string name="legid_sebbek">Legidősebbek</string>
+    <string name="legnehezebbek">Legnehezebbek</string>
+    <string name="splashscore_hotline">SplashScore Hotline</string>
 </resources>

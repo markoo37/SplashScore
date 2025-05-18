@@ -1,6 +1,5 @@
 package com.example.splashscore;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,28 +10,48 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MatchScores_RecyclerViewAdapter extends RecyclerView.Adapter<MatchScores_RecyclerViewAdapter.MyViewHolder> {
-    ArrayList<MatchScoreModel> matchScoreModels;
+public class MatchScores_RecyclerViewAdapter
+        extends RecyclerView.Adapter<MatchScores_RecyclerViewAdapter.MyViewHolder> {
 
-    public MatchScores_RecyclerViewAdapter(ArrayList<MatchScoreModel> matchScoreModels){
+    /** Listener interfész, hogy a Fragment-be vissza tudd jelezni a click-et */
+    public interface OnItemClickListener {
+        void onItemClick(MatchScoreModel match);
+    }
+
+    private ArrayList<MatchScoreModel> matchScoreModels;
+    private OnItemClickListener listener;
+
+    public MatchScores_RecyclerViewAdapter(ArrayList<MatchScoreModel> matchScoreModels) {
         this.matchScoreModels = matchScoreModels;
     }
 
-    @NonNull
-    @Override
-    public MatchScores_RecyclerViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.matchscoreitem, parent, false);
+    /** Ezt hívd meg a Fragment-ből, hogy regisztráld a click eseményt */
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
 
-        return new MatchScores_RecyclerViewAdapter.MyViewHolder(view);
+    @NonNull @Override
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.matchscoreitem, parent, false);
+        return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MatchScores_RecyclerViewAdapter.MyViewHolder holder, int position) {
-        holder.tvHomeTN.setText(matchScoreModels.get(position).gethTeamName());
-        holder.tvAwayTN.setText(matchScoreModels.get(position).getaTeamName());
-        holder.tvQuarters.setText(matchScoreModels.get(position).getQuarters());
-        holder.tvScore.setText(matchScoreModels.get(position).getScore());
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        MatchScoreModel m = matchScoreModels.get(position);
+
+        holder.tvHomeTN.setText(m.gethTeamName());
+        holder.tvAwayTN.setText(m.getaTeamName());
+        holder.tvQuarters.setText(m.getQuarters());
+        holder.tvScore.setText(m.getScore());
+
+        // Itt adjuk hozzá a click-et:
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onItemClick(m);
+            }
+        });
     }
 
     @Override
@@ -40,17 +59,14 @@ public class MatchScores_RecyclerViewAdapter extends RecyclerView.Adapter<MatchS
         return matchScoreModels.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
-
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tvHomeTN, tvAwayTN, tvQuarters, tvScore;
-
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-
-            tvHomeTN = itemView.findViewById(R.id.homeTeamName);
-            tvAwayTN = itemView.findViewById(R.id.awayTeamName);
+            tvHomeTN   = itemView.findViewById(R.id.homeTeamName);
+            tvAwayTN   = itemView.findViewById(R.id.awayTeamName);
             tvQuarters = itemView.findViewById(R.id.quarterScores);
-            tvScore = itemView.findViewById(R.id.matchScore);
+            tvScore    = itemView.findViewById(R.id.matchScore);
         }
     }
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Aktív tétel szövege -->
+    <style name="BottomNavText.Active" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!-- Inaktív tétel szövege -->
+    <style name="BottomNavText.Inactive" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">11sp</item>
+    </style>
+</resources>
